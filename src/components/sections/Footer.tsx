@@ -87,7 +87,7 @@ export default function Footer() {
               />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-[var(--color-text-secondary)]">
-              Enterprise-grade business process outsourcing powered by AI and human expertise. Scaling operations for global brands since 2018.
+              I help US-based solo practitioners and mid-sized CPA firms eliminate backlogs and reclaim their time. With 10 years of experience in US GAAP, tax preparation, and global cloud accounting, I act as your invisible back-office, allowing you to focus on high-level advisory.
             </p>
 
             {/* Social links */}

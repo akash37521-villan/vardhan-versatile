@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Container, MagneticButton, GlowOrb, AnimatedCounter, GradientText } from "@/components/ui";
-import { ArrowRight, Play, TrendingUp, Users, Headphones, Globe } from "lucide-react";
+import { ArrowRight, Play, TrendingUp, Users, Headphones, Globe, FileText, Clock, ShieldCheck } from "lucide-react";
 import { heroTextVariants } from "@/lib/animations";
 import Image from "next/image";
 
@@ -119,10 +119,10 @@ function DashboardPreview() {
           {/* Dashboard content */}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { label: "Active Agents", value: "523", change: "+12%", color: "var(--color-accent)" },
-              { label: "Calls Today", value: "12,847", change: "+8.3%", color: "var(--color-highlight)" },
-              { label: "Avg Response", value: "1.2s", change: "-23%", color: "var(--color-secondary)" },
-              { label: "CSAT Score", value: "98.2%", change: "+2.1%", color: "var(--color-accent)" },
+              { label: "Client Files Active", value: "120+", change: "+15%", color: "var(--color-accent)" },
+              { label: "Ledgers Reconciled", value: "4,250+", change: "This Qtr", color: "var(--color-highlight)" },
+              { label: "Turnaround Time", value: "< 24h", change: "Guaranteed", color: "var(--color-secondary)" },
+              { label: "Accuracy Rate", value: "99.9%", change: "GAAP Compliant", color: "var(--color-accent)" },
             ].map((stat) => (
               <div key={stat.label} className="rounded-xl bg-[var(--color-bg-surface)] p-4">
                 <p className="text-xs text-[var(--color-text-muted)]">{stat.label}</p>
@@ -165,16 +165,16 @@ function DashboardPreview() {
       {/* Floating KPI cards */}
       <div className="hidden md:block">
         <div className="absolute -left-16 top-12">
-          <KpiCard icon={Users} label="Active Agents" value={523} suffix="+" color="#0EA5A0" delay={1.2} />
+          <KpiCard icon={FileText} label="Tax Returns" value={1040} suffix="s" color="#0EA5A0" delay={1.2} />
         </div>
         <div className="absolute -right-16 top-24">
-          <KpiCard icon={TrendingUp} label="Uptime" value={99} suffix=".9%" color="#14B8A6" delay={1.4} />
+          <KpiCard icon={TrendingUp} label="Accuracy" value={100} suffix="%" color="#14B8A6" delay={1.4} />
         </div>
         <div className="absolute -left-8 bottom-24">
-          <KpiCard icon={Headphones} label="Calls/Hour" value={847} suffix="" color="#1B365D" delay={1.6} />
+          <KpiCard icon={Clock} label="Turnaround" value={24} suffix="h" color="#1B365D" delay={1.6} />
         </div>
         <div className="absolute -right-8 bottom-16">
-          <KpiCard icon={Globe} label="Countries" value={50} suffix="+" color="#0EA5A0" delay={1.8} />
+          <KpiCard icon={Globe} label="Regions" value={4} suffix=" Standard" color="#0EA5A0" delay={1.8} />
         </div>
       </div>
     </motion.div>
@@ -227,7 +227,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/5 px-4 py-2">
             <div className="h-2 w-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
             <span className="font-[var(--font-satoshi)] text-xs font-medium text-[var(--color-text-secondary)]">
-              Now serving 50M+ customer interactions annually
+              Eliminate accounting backlogs and scale stress-free
             </span>
           </div>
         </motion.div>
@@ -240,20 +240,19 @@ export default function Hero() {
           animate={isInView ? "visible" : "hidden"}
           custom={0.15}
         >
-          Scaling Customer Operations{" "}
-          <GradientText>For Global Brands</GradientText>
+          Your Invisible Back-Office{" "}
+          <GradientText>For CPA Firms</GradientText>
         </motion.h1>
 
         {/* Subheadline */}
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-center font-[var(--font-satoshi)] text-lg leading-relaxed text-[var(--color-text-secondary)] md:mt-8 md:text-xl"
+          className="mx-auto mt-6 max-w-3xl text-center font-[var(--font-satoshi)] text-lg leading-relaxed text-[var(--color-text-secondary)] md:mt-8 md:text-xl"
           variants={heroTextVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           custom={0.3}
         >
-          Enterprise outsourcing powered by AI and human expertise. We deliver
-          measurable results for the world&apos;s most demanding companies.
+          I help US-based solo practitioners and mid-sized CPA firms eliminate backlogs and reclaim their time. With 10 years of experience in US GAAP, tax preparation, and global cloud accounting, I act as your invisible back-office, allowing you to focus on high-level advisory.
         </motion.p>
 
         {/* CTAs */}

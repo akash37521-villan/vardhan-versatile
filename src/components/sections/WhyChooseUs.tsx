@@ -8,59 +8,59 @@ import { Zap, Shield, Globe, Clock, Award, HeartHandshake, TrendingUp, Lock } fr
 
 const stats = [
   {
-    icon: Zap,
-    value: 50,
-    suffix: "M+",
-    label: "Customer Interactions",
-    description: "Processed annually across all channels",
+    icon: Clock,
+    value: 10,
+    suffix: "+",
+    label: "Years Experience",
+    description: "Specializing in US GAAP & tax preparation",
     color: "#00E5FF",
   },
   {
-    icon: HeartHandshake,
-    value: 500,
-    suffix: "+",
-    label: "Trained Agents",
-    description: "Certified, multilingual professionals",
+    icon: Shield,
+    value: 99,
+    suffix: ".9%",
+    label: "Accuracy Rate",
+    description: "Meticulous attention to accounting standards",
     color: "#7C3AED",
   },
   {
-    icon: Clock,
-    value: 24,
-    suffix: "/7",
-    label: "Global Coverage",
-    description: "Continuous operations, zero downtime",
+    icon: Globe,
+    value: 3,
+    suffix: "",
+    label: "Continents Served",
+    description: "Global client references and trust",
     color: "#14F195",
   },
   {
-    icon: Award,
-    value: 98,
+    icon: Zap,
+    value: 100,
     suffix: "%",
-    label: "Client Satisfaction",
-    description: "Consistently exceeding SLA benchmarks",
+    label: "Remote Setup",
+    description: "Secure remote infrastructure active since 2018",
     color: "#00E5FF",
   },
 ];
 
 const features = [
   {
-    icon: Shield,
-    title: "Enterprise Security",
-    description: "SOC 2 Type II, ISO 27001 certified. GDPR and HIPAA compliant infrastructure.",
-  },
-  {
     icon: Globe,
-    title: "Global Scale",
-    description: "Operations across 6 continents with 15+ delivery centers worldwide.",
+    title: "Regional Compliance",
+    description: "Deep expertise in US, Canadian, Australian, and New Zealand accounting standards.",
   },
   {
-    icon: TrendingUp,
-    title: "AI-Augmented Workforce",
-    description: "Proprietary AI copilots that boost agent productivity by 40%.",
+    icon: Zap,
+    title: "Tax & Payroll",
+    description: "Specialized in US 1040s (TurboTax) and full-cycle payroll via ADP and Gusto.",
   },
   {
-    icon: Lock,
-    title: "Guaranteed Uptime",
-    description: "99.99% SLA-backed uptime with redundant infrastructure and disaster recovery.",
+    icon: Shield,
+    title: "Software Stack",
+    description: "Power user of NetSuite (ERP), QuickBooks, Xero, and MYOB.",
+  },
+  {
+    icon: Award,
+    title: "Industry Niche",
+    description: "Proven track record in Real Estate, IT, Logistics, and Restaurant accounting.",
   },
 ];
 
@@ -78,9 +78,9 @@ export default function WhyChooseUs() {
 
       <Container className="relative z-10">
         <SectionHeading
-          label="Why Choose Us"
-          title="The Numbers Speak For Themselves"
-          description="We don't just process — we optimize, innovate, and deliver measurable business outcomes."
+          label="The Trust Factor"
+          title="Secure, Remote & Deadline-Driven"
+          description="I have been working 100% remotely since 2018—long before it was the norm. I have the infrastructure, security protocols, and references from three continents to ensure your client data is safe and your deadlines are met."
         />
 
         {/* Stats Grid */}
