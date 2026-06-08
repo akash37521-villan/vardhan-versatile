@@ -182,7 +182,7 @@ export default function Contact() {
               {[
                 { icon: Mail, label: "Email", value: "vardhanversatile@gmail.com", href: "mailto:vardhanversatile@gmail.com" },
                 { icon: Phone, label: "Phone", value: "+91 7018703476", href: "tel:+917018703476" },
-                { icon: MapPin, label: "Headquarters", value: "New York, USA", href: null },
+                { icon: MapPin, label: "Headquarters", value: "Himachal Pradesh, Solan, Shamti", href: "https://maps.google.com/?q=Shamti,+Solan,+Himachal+Pradesh" },
               ].map((info) => {
                 const Icon = info.icon;
                 const innerContent = (
