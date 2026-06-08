@@ -92,14 +92,19 @@ export default function Footer() {
 
             {/* Social links */}
             <div className="mt-6 flex gap-3">
-              {["LinkedIn", "Twitter", "GitHub"].map((social) => (
+              {[
+                { name: "LinkedIn", href: "https://www.linkedin.com/in/rattan-chand-vardhan-488148a5/" },
+                { name: "GitHub", href: "https://github.com/akash37521-villan/vardhan-versatile" },
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
-                  aria-label={social}
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
                   className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text-muted)] transition-all hover:border-[var(--color-accent)]/40 hover:text-[var(--color-accent)]"
                 >
-                  <span className="text-xs font-semibold">{social[0]}</span>
+                  <span className="text-xs font-semibold">{social.name[0]}</span>
                 </a>
               ))}
             </div>

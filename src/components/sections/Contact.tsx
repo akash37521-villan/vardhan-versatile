@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Container, SectionHeading, MagneticButton, GlowOrb } from "@/components/ui";
 import { fadeUpVariants } from "@/lib/animations";
-import { Send, Calendar, Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Send, Calendar, Mail, Phone, MapPin, ArrowRight, CheckCircle2, Linkedin } from "lucide-react";
 
 const serviceOptions = [
   "Customer Support",
@@ -184,6 +184,7 @@ export default function Contact() {
                 { icon: Mail, label: "Email", value: "vardhanversatile@gmail.com", href: "mailto:vardhanversatile@gmail.com" },
                 { icon: Phone, label: "Phone", value: "+91 7018703476", href: "tel:+917018703476" },
                 { icon: MapPin, label: "Headquarters", value: "Himachal Pradesh, Solan, Shamti", href: "https://maps.google.com/?q=Shamti,+Solan,+Himachal+Pradesh" },
+                { icon: Linkedin, label: "LinkedIn", value: "Rattan Chand Vardhan", href: "https://www.linkedin.com/in/rattan-chand-vardhan-488148a5/" },
               ].map((info) => {
                 const Icon = info.icon;
                 const innerContent = (
