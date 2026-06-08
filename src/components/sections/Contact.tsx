@@ -16,6 +16,7 @@ const serviceOptions = [
   "Data Entry",
   "AI-Powered Support",
   "Email & Chat Support",
+  "Taxation & Accounting",
 ];
 
 export default function Contact() {

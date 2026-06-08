@@ -12,6 +12,7 @@ const footerLinks = {
     "Virtual Assistance",
     "Technical Support",
     "Back Office Operations",
+    "Taxation & Accounting",
   ],
   Company: [
     "About Us",

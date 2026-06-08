@@ -13,6 +13,7 @@ import {
   Database,
   Bot,
   MessageSquare,
+  Calculator,
 } from "lucide-react";
 import { staggerContainerVariants, staggerItemVariants } from "@/lib/animations";
 
@@ -70,6 +71,12 @@ const services = [
     title: "Email & Chat Support",
     description: "Managed email and live chat operations with sub-60-second response times and intelligent auto-responses.",
     color: "#14F195",
+  },
+  {
+    icon: Calculator,
+    title: "Taxation & Accounting",
+    description: "Comprehensive bookkeeping, tax compliance, payroll processing, and financial reporting managed by financial experts.",
+    color: "#00E5FF",
   },
 ];
 
