@@ -180,21 +180,32 @@ export default function Contact() {
             {/* Contact Info Cards */}
             <div className="space-y-4">
               {[
-                { icon: Mail, label: "Email", value: "hello@vardhanversatile.com" },
-                { icon: Phone, label: "Phone", value: "+1 (555) 987-6543" },
-                { icon: MapPin, label: "Headquarters", value: "New York, USA" },
+                { icon: Mail, label: "Email", value: "vardhanversatile@gmail.com", href: "mailto:vardhanversatile@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+91 7018703476", href: "tel:+917018703476" },
+                { icon: MapPin, label: "Headquarters", value: "New York, USA", href: null },
               ].map((info) => {
                 const Icon = info.icon;
+                const innerContent = (
+                  <>
+                    <p className="text-xs text-[var(--color-text-muted)]">{info.label}</p>
+                    <p className="font-[var(--font-satoshi)] text-sm font-medium text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-accent)]">
+                      {info.value}
+                    </p>
+                  </>
+                );
                 return (
-                  <div key={info.label} className="glass flex items-center gap-4 p-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+                  <div key={info.label} className="glass group flex items-center gap-4 p-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-accent)]/10 text-[var(--color-accent)] transition-colors group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-bg-primary)]">
                       <Icon className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-xs text-[var(--color-text-muted)]">{info.label}</p>
-                      <p className="font-[var(--font-satoshi)] text-sm font-medium text-[var(--color-text-primary)]">
-                        {info.value}
-                      </p>
+                      {info.href ? (
+                        <a href={info.href} className="block">
+                          {innerContent}
+                        </a>
+                      ) : (
+                        innerContent
+                      )}
                     </div>
                   </div>
                 );
