@@ -4,7 +4,24 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Container, SectionHeading, MagneticButton, GlowOrb } from "@/components/ui";
 import { fadeUpVariants } from "@/lib/animations";
-import { Send, Calendar, Mail, Phone, MapPin, ArrowRight, CheckCircle2, Linkedin } from "lucide-react";
+import { Send, Calendar, Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from "lucide-react";
+
+const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 const serviceOptions = [
   "Customer Support",
@@ -184,7 +201,7 @@ export default function Contact() {
                 { icon: Mail, label: "Email", value: "vardhanversatile@gmail.com", href: "mailto:vardhanversatile@gmail.com" },
                 { icon: Phone, label: "Phone", value: "+91 7018703476", href: "tel:+917018703476" },
                 { icon: MapPin, label: "Headquarters", value: "Himachal Pradesh, Solan, Shamti", href: "https://maps.google.com/?q=Shamti,+Solan,+Himachal+Pradesh" },
-                { icon: Linkedin, label: "LinkedIn", value: "Rattan Chand Vardhan", href: "https://www.linkedin.com/in/rattan-chand-vardhan-488148a5/" },
+                { icon: LinkedinIcon, label: "LinkedIn", value: "Rattan Chand Vardhan", href: "https://www.linkedin.com/in/rattan-chand-vardhan-488148a5/" },
               ].map((info) => {
                 const Icon = info.icon;
                 const innerContent = (
