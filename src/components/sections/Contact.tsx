@@ -39,12 +39,41 @@ const serviceOptions = [
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    service: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit form");
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", company: "", service: "", message: "" });
+    } catch (err: any) {
+      setErrorMsg(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -96,6 +125,8 @@ export default function Contact() {
                         id="contact-name"
                         type="text"
                         required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Smith"
                         className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/60 px-4 py-3 font-[var(--font-satoshi)] text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-all duration-200 focus:border-[var(--color-accent)]/40 focus:ring-1 focus:ring-[var(--color-accent)]/20"
                       />
@@ -108,6 +139,8 @@ export default function Contact() {
                         id="contact-email"
                         type="email"
                         required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@company.com"
                         className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/60 px-4 py-3 font-[var(--font-satoshi)] text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-all duration-200 focus:border-[var(--color-accent)]/40 focus:ring-1 focus:ring-[var(--color-accent)]/20"
                       />
@@ -122,6 +155,8 @@ export default function Contact() {
                       id="contact-company"
                       type="text"
                       required
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Company Inc."
                       className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/60 px-4 py-3 font-[var(--font-satoshi)] text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-all duration-200 focus:border-[var(--color-accent)]/40 focus:ring-1 focus:ring-[var(--color-accent)]/20"
                     />
@@ -134,6 +169,8 @@ export default function Contact() {
                     <select
                       id="contact-service"
                       required
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/60 px-4 py-3 font-[var(--font-satoshi)] text-sm text-[var(--color-text-primary)] outline-none transition-all duration-200 focus:border-[var(--color-accent)]/40 focus:ring-1 focus:ring-[var(--color-accent)]/20"
                     >
                       <option value="" className="bg-[var(--color-bg-surface)]">Select a service</option>
@@ -152,14 +189,22 @@ export default function Contact() {
                     <textarea
                       id="contact-message"
                       rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us about your project and requirements..."
                       className="w-full resize-none rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/60 px-4 py-3 font-[var(--font-satoshi)] text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-all duration-200 focus:border-[var(--color-accent)]/40 focus:ring-1 focus:ring-[var(--color-accent)]/20"
                     />
                   </div>
 
-                  <MagneticButton variant="primary" size="large" className="w-full">
-                    <Send className="h-4 w-4" />
-                    Send Message
+                  {errorMsg && (
+                    <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-600">
+                      {errorMsg}
+                    </div>
+                  )}
+
+                  <MagneticButton variant="primary" size="large" className="w-full" disabled={loading}>
+                    {loading ? "Sending..." : "Send Message"}
+                    {!loading && <Send className="h-4 w-4" />}
                   </MagneticButton>
                 </form>
               )}
